@@ -904,12 +904,87 @@ paths :
             application/json :
               schema  : 
                $ref : "#/components/status/404"
-# to upload document of leagel department
-  /api/v1/name-department/upload/{fieldname} :
+# to upload document of business department
+  /api/v1/business-department/upload/{fieldname} :
     post : 
       summary : Returns a json object
       tags : 
-        - To upload document of a name department
+        - To upload document of a business development department
+      parameters :
+        - $ref : "#/components/parameters/department"
+      requestBody :
+        required : true 
+        content : 
+          multipart/form-data :
+            schema : 
+              type : object
+              properties : 
+                document : 
+                  type : string
+                  format : binary
+              example : 
+                properties : 
+                  document : string
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : document uploaded successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+# to upload document of administration department
+  /api/v1/administration-department/upload/{fieldname} :
+    post : 
+      summary : Returns a json object
+      tags : 
+        - To upload document of a administration department
+      parameters :
+        - $ref : "#/components/parameters/department"
+      requestBody :
+        required : true 
+        content : 
+          multipart/form-data :
+            schema : 
+              type : object
+              properties : 
+                document : 
+                  type : string
+                  format : binary
+              example : 
+                properties : 
+                  document : string
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : document uploaded successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# to upload document of operatoins department
+  /api/v1/operations-department/upload/{fieldname} :
+    post : 
+      summary : Returns a json object
+      tags : 
+        - To upload document of a operatoins department
       parameters :
         - $ref : "#/components/parameters/department"
       requestBody :
