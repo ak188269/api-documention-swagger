@@ -138,6 +138,64 @@ paths :
               schema  : 
                 $ref : "#/components/status/404"
 
+# apply for prospecting-right
+  /api/v1/applications/propecting-right :
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - To apply for prospecting right
+      requestBody : 
+        required : true 
+        content : 
+          application/json :
+            schema : 
+              type : object 
+              properties : 
+                applicationRefNumber :
+                  type : string 
+                mineralType :
+                  type : array 
+                  items : 
+                    type : string
+                categoryOfMinerals :
+                  type : string
+          multipart/form-data:
+            schema : 
+              type : object 
+              properties : 
+                proofOfApplicationDocument:
+                  type : string
+                  format : binary
+                environmentalAuthorizationDocument:
+                  type : string
+                  format : binary
+                technicalAbilityDocument:
+                  type : string
+                  format : binary
+                regulationMapDocument:
+                  type : string
+                  format : binary
+                prospectingWorksProgrammeDocument:
+                  type : string
+                  format : binary
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+                  
+              example : 
+                success : true
+                msg : Application submitted successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+                $ref : "#/components/status/404"
+
 
 # acceptance of mining permit
   /api/v1/acceptance/mining-permit:
@@ -771,6 +829,120 @@ paths :
               schema  : 
                $ref : "#/components/status/404"
 
+# to upload document of leagel department
+  /api/v1/legal-department/upload/{fieldname} :
+    post : 
+      summary : Returns a json object
+      tags : 
+        - To upload document of a legal department
+      parameters :
+        - $ref : "#/components/parameters/department"
+      requestBody :
+        required : true 
+        content : 
+          multipart/form-data :
+            schema : 
+              type : object
+              properties : 
+                document : 
+                  type : string
+                  format : binary
+              example : 
+                properties : 
+                  document : string
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : document uploaded successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# to upload document of leagel department
+  /api/v1/finance-department/upload/{fieldname} :
+    post : 
+      summary : Returns a json object
+      tags : 
+        - To upload document of a finance department
+      parameters :
+        - $ref : "#/components/parameters/department"
+      requestBody :
+        required : true 
+        content : 
+          multipart/form-data :
+            schema : 
+              type : object
+              properties : 
+                document : 
+                  type : string
+                  format : binary
+              example : 
+                properties : 
+                  document : string
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : document uploaded successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+# to upload document of leagel department
+  /api/v1/name-department/upload/{fieldname} :
+    post : 
+      summary : Returns a json object
+      tags : 
+        - To upload document of a name department
+      parameters :
+        - $ref : "#/components/parameters/department"
+      requestBody :
+        required : true 
+        content : 
+          multipart/form-data :
+            schema : 
+              type : object
+              properties : 
+                document : 
+                  type : string
+                  format : binary
+              example : 
+                properties : 
+                  document : string
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : document uploaded successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+          
 
 
                   
@@ -796,6 +968,17 @@ components :
           type : boolean
         msg : 
         type : string
+  parameters : 
+    department : 
+      name : fieldname
+      in : path
+      required : true
+      description : "Give the field name of the document you want to upload \n
+      Note : It should be in camelCase"
+      schema : 
+        type : string
+        # example : payrollProcessing
+      
       
 
          
