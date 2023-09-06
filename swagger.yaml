@@ -159,6 +159,8 @@ paths :
                     type : string
                 categoryOfMinerals :
                   type : string
+                provinces :
+                  type : string
           multipart/form-data:
             schema : 
               type : object 
@@ -169,7 +171,7 @@ paths :
                 environmentalAuthorizationDocument:
                   type : string
                   format : binary
-                technicalAbilityDocument:
+                screeningReportDocument:
                   type : string
                   format : binary
                 regulationMapDocument:
@@ -198,7 +200,7 @@ paths :
 
 
 # acceptance of mining permit
-  /api/v1/acceptance/mining-permit:
+  /api/v1/mining-permit/acceptance-letter:
     post : 
       summary : Returns a json object 
       tags : 
@@ -212,9 +214,7 @@ paths :
               properties :
                 applicationRefNumber :
                   type : string
-                environmentalConsultant :
-                  type : string
-                  description : name of the environment consultant
+                
                 # applicationRefNumber:
           multipart/form-data:
             schema : 
@@ -242,7 +242,7 @@ paths :
                $ref : "#/components/status/404"
 
 # acceptance of prospecting right
-  /api/v1/acceptance/prospecting-right:
+  /api/v1/prospecting-right/acceptance-letter:
     post : 
       summary : Returns a json object 
       tags : 
@@ -256,9 +256,7 @@ paths :
               properties :
                 applicationRefNumber :
                   type : string
-                environmentalConsultant :
-                  type : string
-                  description : name of the environment consultant
+                
                 # applicationRefNumber:
           multipart/form-data:
             schema : 
@@ -287,7 +285,7 @@ paths :
 
 
 # acceptance of mining rights
-  /api/v1/acceptance/mining-right:
+  /api/v1/mining-right/acceptance-letter:
     post : 
       summary : Returns a json object 
       tags : 
@@ -301,9 +299,7 @@ paths :
               properties :
                 applicationRefNumber :
                   type : string
-                environmentalConsultant :
-                  type : string
-                  description : name of the environment consultant
+                
                 # applicationRefNumber:
           multipart/form-data:
             schema : 
@@ -330,9 +326,117 @@ paths :
               schema  : 
                $ref : "#/components/status/404"
 
+# for appointing environment consultant of mining rights
+  /api/v1/mining-right/appoint-environment-consultant:
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - For  appointing of environement consultant for mining right
+      requestBody : 
+        required : true 
+        content : 
+          application/json : 
+            schema :
+              type : object
+              properties :
+                applicationRefNumber :
+                  type : string
+                environmentConsultant :
+                  type : string
+                
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+                  
+              example : 
+                success : true
+                msg : Environment Consultant appointed successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# for appointing environment consultant of mining permit
+  /api/v1/mining-permit/appoint-environment-consultant:
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - For  appointing of environement consultant for Mining permit
+      requestBody : 
+        required : true 
+        content : 
+          application/json : 
+            schema :
+              type : object
+              properties :
+                applicationRefNumber :
+                  type : string
+                environmentConsultant :
+                  type : string
+                
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+                  
+              example : 
+                success : true
+                msg : Environment Consultant appointed successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# for appointing environment consultant of prospecting right
+  /api/v1/prospecting-right/appoint-environment-consultant:
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - For  appointing of environement consultant for Prospecing right
+      requestBody : 
+        required : true 
+        content : 
+          application/json : 
+            schema :
+              type : object
+              properties :
+                applicationRefNumber :
+                  type : string
+                environmentConsultant :
+                  type : string
+                
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+                  
+              example : 
+                success : true
+                msg : Environment Consultant appointed successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
 
 # submitting basic-assessment-report of mining permit
-  /api/v1/basic-assessment-report/mining-permit:
+  /api/v1/mining-permit/basic-assessment-report:
     post : 
       summary : Returns a json object 
       tags : 
@@ -378,7 +482,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting basic-assessment-report of prospecting-right
-  /api/v1/basic-assessment-report/prospecting-right:
+  /api/v1/prospecting-right/basic-assessment-report:
     post : 
       summary : Returns a json object 
       tags : 
@@ -424,7 +528,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting basic-assessment-report of mining-right
-  /api/v1/basic-assessment-report/mining-right:
+  /api/v1/mining-right/basic-assessment-report:
     post : 
       summary : Returns a json object 
       tags : 
@@ -470,7 +574,7 @@ paths :
 
 
 # submitting financial-provision of mining-permit
-  /api/v1/financial-provision/mining-permit:
+  /api/v1/mining-permit/financial-provision:
     post : 
       summary : Returns a json object 
       tags : 
@@ -501,7 +605,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg :  Financial Provision document submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -510,7 +614,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting financial-provision of prospecting right
-  /api/v1/financial-provision/prospecting-right:
+  /api/v1/prospecting-right/financial-provision:
     post : 
       summary : Returns a json object 
       tags : 
@@ -541,7 +645,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg :  Financial Provision document submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -550,7 +654,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting financial-provision of mining right
-  /api/v1/financial-provision/mining-right:
+  /api/v1/mining-right/financial-provision:
     post : 
       summary : Returns a json object 
       tags : 
@@ -581,7 +685,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg : Financial Provision document submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -590,7 +694,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting granting-letter of mining-permit
-  /api/v1/granting-letter/mining-permit:
+  /api/v1/mining-permit/granting-letter:
     post : 
       summary : Returns a json object 
       tags : 
@@ -608,7 +712,7 @@ paths :
             schema : 
               type : object 
               properties : 
-                  grantingLetter:
+                  grantingLetterDocument:
                     type : string
                     format : binary
                   
@@ -621,7 +725,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg : Granting letter submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -630,7 +734,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting granting-letter of prospecting-right
-  /api/v1/granting-letter/prospecting-right:
+  /api/v1/prospecting-right/granting-letter:
     post : 
       summary : Returns a json object 
       tags : 
@@ -648,7 +752,7 @@ paths :
             schema : 
               type : object 
               properties : 
-                  grantingLetter:
+                  grantingLetterDocument:
                     type : string
                     format : binary
                   
@@ -661,7 +765,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg : Granting letter submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -670,7 +774,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting granting-letter of mining-right
-  /api/v1/granting-letter/mining-right:
+  /api/v1/mining-right/granting-letter:
     post : 
       summary : Returns a json object 
       tags : 
@@ -688,7 +792,7 @@ paths :
             schema : 
               type : object 
               properties : 
-                  grantingLetter:
+                  grantingLetterDocument:
                     type : string
                     format : binary
                   
@@ -701,7 +805,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg : Granting letter submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -710,7 +814,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting environmental authorisation document for mining permit
-  /api/v1/environmental-authorization/mining-permit:
+  /api/v1/mining-permit/environmental-authorization:
     post : 
       summary : Returns a json object 
       tags : 
@@ -741,7 +845,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg : Environmental Authorisation submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -750,7 +854,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting environmental authorisation document for prospecting right
-  /api/v1/environmental-authorization/prospecting-right:
+  /api/v1/prospecting-right/environmental-authorization:
     post : 
       summary : Returns a json object 
       tags : 
@@ -781,7 +885,7 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg : Environmental Authorisation submitted successfully
         400 : 
           description : Error 😔
           content : 
@@ -790,7 +894,7 @@ paths :
                $ref : "#/components/status/404"
 
 # submitting environmental authorisation document for mining-right
-  /api/v1/environmental-authorization/mining-right:
+  /api/v1/mining-right/environmental-authorization:
     post : 
       summary : Returns a json object 
       tags : 
@@ -821,7 +925,127 @@ paths :
                 $ref: "#/components/status/200"
               example : 
                 success : true
-                msg : Basic assessment report submitted successfully
+                msg : Environmental Authorisation submitted successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# submitting rejection letter document for mining-right
+  /api/v1/mining-right/rejection-letter:
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - For submitting Rejection letter document for mining right
+      requestBody : 
+        required : true 
+        content : 
+          application/json : 
+            schema :
+              type : object
+              properties :
+                applicationRefNumber :
+                  type : string
+          multipart/form-data:
+            schema : 
+              type : object 
+              properties : 
+                  rejectionDocument:
+                    type : string
+                    format : binary
+                  
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : Rejection letter submitted successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# submitting rejection letter document for mining-permit
+  /api/v1/mining-permit/rejection-letter:
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - For submitting Rejection letter document for mining permit
+      requestBody : 
+        required : true 
+        content : 
+          application/json : 
+            schema :
+              type : object
+              properties :
+                applicationRefNumber :
+                  type : string
+          multipart/form-data:
+            schema : 
+              type : object 
+              properties : 
+                  rejectionDocument:
+                    type : string
+                    format : binary
+                  
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : Rejection letter submitted successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# submitting rejection letter document for prospecting-right
+  /api/v1/prospecting-right/rejection-letter:
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - For submitting Rejection letter document for prospecting right
+      requestBody : 
+        required : true 
+        content : 
+          application/json : 
+            schema :
+              type : object
+              properties :
+                applicationRefNumber :
+                  type : string
+          multipart/form-data:
+            schema : 
+              type : object 
+              properties : 
+                  rejectionDocument:
+                    type : string
+                    format : binary
+                  
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref: "#/components/status/200"
+              example : 
+                success : true
+                msg : Rejection letter submitted successfully
         400 : 
           description : Error 😔
           content : 
