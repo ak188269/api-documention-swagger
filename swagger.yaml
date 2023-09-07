@@ -22,7 +22,7 @@ paths :
           schema : 
           type : string
 # apply for mining premit
-  /api/v1/applications/mining-permit :
+  /api/v1/application/mining-permit :
     post : 
       summary : Returns a json object 
       tags : 
@@ -81,7 +81,7 @@ paths :
                 $ref : "#/components/status/404"
 
 # apply for mining-right
-  /api/v1/applications/mining-right :
+  /api/v1/application/mining-right :
     post : 
       summary : Returns a json object 
       tags : 
@@ -139,7 +139,7 @@ paths :
                 $ref : "#/components/status/404"
 
 # apply for prospecting-right
-  /api/v1/applications/propecting-right :
+  /api/v1/application/propecting-right :
     post : 
       summary : Returns a json object 
       tags : 
