@@ -211,10 +211,10 @@ paths :
               schema  : 
                 type : object
                 parameters :
-                success : 
-                type : string
-                data : 
-                type : integer
+                    success : 
+                        type : string
+                    data : 
+                        type : integer
 
                   
               example : 
@@ -240,10 +240,10 @@ paths :
               schema  : 
                 type : object
                 parameters :
-                success : 
-                type : string
-                data : 
-                type : integer
+                    success : 
+                       type : string
+                    data : 
+                        type : integer
 
                   
               example : 
@@ -269,10 +269,10 @@ paths :
               schema  : 
                 type : object
                 parameters :
-                success : 
-                type : string
-                data : 
-                type : integer
+                    success : 
+                       type : string
+                    data : 
+                       type : integer
 
                   
               example : 
