@@ -1,4 +1,4 @@
-openapi : 3.0.0
+openapi : 3.0.3
 info : 
   title :  XAWK 
   description : Apis for XAWK 
@@ -210,7 +210,7 @@ paths :
             application/json :
               schema  : 
                 type : object
-                parameters :
+                properties :
                     success : 
                         type : string
                     data : 
@@ -239,7 +239,7 @@ paths :
             application/json :
               schema  : 
                 type : object
-                parameters :
+                properties :
                     success : 
                        type : string
                     data : 
@@ -268,7 +268,7 @@ paths :
             application/json :
               schema  : 
                 type : object
-                parameters :
+                properties :
                     success : 
                        type : string
                     data : 
