@@ -198,6 +198,92 @@ paths :
               schema  : 
                 $ref : "#/components/status/404"
 
+#get count of total number of application submitted 
+  /api/v1/mining-permit/count:
+    get : 
+      tags :
+        - Get total number of  mining permit application submitted
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                type : object
+                parameters :
+                success : 
+                type : string
+                data : 
+                type : integer
+
+                  
+              example : 
+                success : true
+                data : 10
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+#get count of total number of application submitted 
+  /api/v1/mining-right/count:
+    get : 
+      tags :
+        - Get total number of  mining right application submitted
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                type : object
+                parameters :
+                success : 
+                type : string
+                data : 
+                type : integer
+
+                  
+              example : 
+                success : true
+                data : 10
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+#get count of total number of application submitted 
+  /api/v1/prospecting-right/count:
+    get : 
+      tags :
+        - Get total number of  prospecting right application submitted
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                type : object
+                parameters :
+                success : 
+                type : string
+                data : 
+                type : integer
+
+                  
+              example : 
+                success : true
+                data : 10
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
 
 # acceptance of mining permit
   /api/v1/mining-permit/acceptance-letter:
