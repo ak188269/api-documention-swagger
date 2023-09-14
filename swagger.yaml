@@ -95,6 +95,29 @@ paths :
             application/json :
               schema  : 
                 $ref : "#/components/status/404"
+#to logout
+  /api/v1/user/login : 
+    get : 
+      summary : Returns a json object 
+      tags : 
+        - to logout on website
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref : "#/components/status/200"
+                  
+              example : 
+                success : true
+                msg : Logged out successfully
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+                $ref : "#/components/status/404"
 # apply for mining premit
   /api/v1/application/mining-permit :
     post : 
