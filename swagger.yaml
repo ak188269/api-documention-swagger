@@ -96,7 +96,7 @@ paths :
               schema  : 
                 $ref : "#/components/status/404"
 #to logout
-  /api/v1/user/login : 
+  /api/v1/user/logout : 
     get : 
       summary : Returns a json object 
       tags : 
