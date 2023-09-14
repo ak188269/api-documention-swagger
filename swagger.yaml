@@ -285,10 +285,17 @@ paths :
               schema  : 
                 type : object
                 properties :
+<<<<<<< HEAD
                   success : 
                     type : string
                   data : 
                     type : integer
+=======
+                    success : 
+                        type : string
+                    data : 
+                        type : integer
+>>>>>>> 4303b5f7d5fa79027cff2f82f79ac6ad268f4fa2
 
                   
               example : 
@@ -314,10 +321,17 @@ paths :
               schema  : 
                 type : object
                 properties :
+<<<<<<< HEAD
                   success : 
                     type : string
                   data : 
                     type : integer
+=======
+                    success : 
+                       type : string
+                    data : 
+                        type : integer
+>>>>>>> 4303b5f7d5fa79027cff2f82f79ac6ad268f4fa2
 
                   
               example : 
@@ -343,10 +357,17 @@ paths :
               schema  : 
                 type : object
                 properties :
+<<<<<<< HEAD
                   success : 
                     type : string
                   data : 
                     type : integer
+=======
+                    success : 
+                       type : string
+                    data : 
+                       type : integer
+>>>>>>> 4303b5f7d5fa79027cff2f82f79ac6ad268f4fa2
 
                   
               example : 
