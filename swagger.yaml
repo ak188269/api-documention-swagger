@@ -8,7 +8,7 @@ info :
 servers :
   - url : http://localhost:8080/
     description : this is local server
-  - url : http://mycompant.com
+  - url : https://xawk.onrender.com
     description : this is production server
 paths : 
   / : 
@@ -21,6 +21,80 @@ paths :
           description : success
           schema : 
           type : string
+          
+#Register user 
+  /api/v1/user/register : 
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - to register a user
+      requestBody :
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                name : 
+                  type : string
+                email :
+                  type : string
+                password :
+                  type : string
+                phone : 
+                  type : string
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref : "#/components/status/200"
+                  
+              example : 
+                success : true
+                msg : Registred successfully check your email for verification
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+                $ref : "#/components/status/404"
+#to login 
+  /api/v1/user/login : 
+    post : 
+      summary : Returns a json object 
+      tags : 
+        - to login on website
+      requestBody :
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                email :
+                  type : string
+                password :
+                  type : string
+      responses : 
+        200 : 
+          description : success 👍
+          content : 
+            application/json :
+              schema  : 
+                $ref : "#/components/status/200"
+                  
+              example : 
+                success : true
+                msg : Logged in successfully
+                data : user data in json format 
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+                $ref : "#/components/status/404"
 # apply for mining premit
   /api/v1/application/mining-permit :
     post : 
@@ -210,11 +284,11 @@ paths :
             application/json :
               schema  : 
                 type : object
-                parameters :
-                success : 
-                type : string
-                data : 
-                type : integer
+                properties :
+                  success : 
+                    type : string
+                  data : 
+                    type : integer
 
                   
               example : 
@@ -239,11 +313,11 @@ paths :
             application/json :
               schema  : 
                 type : object
-                parameters :
-                success : 
-                type : string
-                data : 
-                type : integer
+                properties :
+                  success : 
+                    type : string
+                  data : 
+                    type : integer
 
                   
               example : 
@@ -268,11 +342,11 @@ paths :
             application/json :
               schema  : 
                 type : object
-                parameters :
-                success : 
-                type : string
-                data : 
-                type : integer
+                properties :
+                  success : 
+                    type : string
+                  data : 
+                    type : integer
 
                   
               example : 
