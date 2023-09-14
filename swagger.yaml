@@ -9,7 +9,7 @@ servers :
   - url : http://localhost:8080/
     description : this is local server
   - url : https://xawk.onrender.com
-    description : this is production server
+    description : production server
 paths : 
   / : 
     get : 
