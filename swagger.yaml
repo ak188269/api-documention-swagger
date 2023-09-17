@@ -9,7 +9,7 @@ servers :
   - url : http://localhost:8080/
     description : this is local server
   - url : https://xawk.onrender.com
-    description : production server
+    description : this is production server
 paths : 
   / : 
     get : 
@@ -95,28 +95,6 @@ paths :
             application/json :
               schema  : 
                 $ref : "#/components/status/404"
-#to logout
-  /api/v1/user/logout : 
-    get : 
-      summary : Returns a json object 
-      tags : 
-        - to logout on website
-      responses : 
-        200 : 
-          description : success 👍
-          content : 
-            application/json :
-              schema  : 
-                $ref : "#/components/status/200"
-              example : 
-                success : true
-                msg : Logged out successfully
-        400 : 
-          description : Error 😔
-          content : 
-            application/json :
-              schema  : 
-                $ref : "#/components/status/404"
 # apply for mining premit
   /api/v1/application/mining-permit :
     post : 
@@ -136,7 +114,7 @@ paths :
                   type : array 
                   items : 
                     type : string
-                provinces :
+                province :
                   type : string
                 farmName :
                   type : string
@@ -255,7 +233,7 @@ paths :
                     type : string
                 categoryOfMinerals :
                   type : string
-                provinces :
+                province :
                   type : string
           multipart/form-data:
             schema : 
@@ -381,6 +359,442 @@ paths :
               schema  : 
                $ref : "#/components/status/404"
 
+
+#  request to change status to accepted i.e accept an application for mining permit
+  /api/v1/mining-permit/accept:
+    put : 
+      summary: Change the status of application to accepted
+      tags :
+        - For accepting application of mining permit
+      requestBody: 
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                  applicationRefNumber :
+                    type  : string
+                    required : true
+      responses :
+        200 :
+          description : Success
+          content :
+            application/json:
+              schema :
+                $ref: "#/components/status/200"
+              example :
+                success : true 
+                msg : "Application accepted successfully"
+        404 :
+          description : Application  Not found 
+          content :
+            application/json:
+              properties :
+                success :
+                  type : boolean
+                msg : 
+                  type : string
+              example :
+                success : true 
+                msg : "No application found with application reference number"
+        500 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+#  request to change status to accepted i.e accept an application for mining right
+  /api/v1/mining-right/accept:
+    put : 
+      summary: Change the status of application to accepted
+      tags :
+        - For accepting application of mining right
+      requestBody: 
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                  applicationRefNumber :
+                    type  : string
+                    required : true
+      responses :
+        200 :
+          description : Success
+          content :
+            application/json:
+              schema :
+                $ref: "#/components/status/200"
+              example :
+                success : true 
+                msg : "Application accepted successfully"
+        404 :
+          description : Application  Not found 
+          content :
+            application/json:
+              properties :
+                success :
+                  type : boolean
+                msg : 
+                  type : string
+              example :
+                success : true 
+                msg : "No application found with application reference number"
+        500 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+#  request to change status to accepted i.e accept an application for propecting right
+  /api/v1/prospecting-right/accept:
+    put : 
+      summary: Change the status of application to accepted
+      tags :
+        - For accepting application of prospecting right
+      requestBody: 
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                  applicationRefNumber :
+                    type  : string
+                    required : true
+      responses :
+        200 :
+          description : Success
+          content :
+            application/json:
+              schema :
+                $ref: "#/components/status/200"
+              example :
+                success : true 
+                msg : "Application accepted successfully"
+        404 :
+          description : Application  Not found 
+          content :
+            application/json:
+              properties :
+                success :
+                  type : boolean
+                msg : 
+                  type : string
+              example :
+                success : true 
+                msg : "No application found with application reference number"
+        500 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+#  request to change status to rejected i.e reject an application for mining permit
+  /api/v1/mining-permit/reject:
+    put : 
+      summary: Change the status of application to accepted
+      tags :
+        - For rejecting application of mining permit
+      requestBody: 
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                  applicationRefNumber :
+                    type  : string
+                    required : true
+      responses :
+        200 :
+          description : Success
+          content :
+            application/json:
+              schema :
+                $ref: "#/components/status/200"
+              example :
+                success : true 
+                msg : "Application rejected"
+        404 :
+          description : Application  Not found 
+          content :
+            application/json:
+              properties :
+                success :
+                  type : boolean
+                msg : 
+                  type : string
+              example :
+                success : true 
+                msg : "No application found with application reference number"
+        500 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+#  request to change status to rejected i.e reject an application for mining right
+  /api/v1/mining-right/reject:
+    put : 
+      summary: Change the status of application to rejected
+      tags :
+        - For rejecting application of mining right
+      requestBody: 
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                  applicationRefNumber :
+                    type  : string
+                    required : true
+      responses :
+        200 :
+          description : Success
+          content :
+            application/json:
+              schema :
+                $ref: "#/components/status/200"
+              example :
+                success : true 
+                msg : "Application rejected"
+        404 :
+          description : Application  Not found 
+          content :
+            application/json:
+              properties :
+                success :
+                  type : boolean
+                msg : 
+                  type : string
+              example :
+                success : true 
+                msg : "No application found with application reference number"
+        500 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+#  request to change status to rejected i.e reject an application for propecting right
+  /api/v1/prospecting-right/reject:
+    put : 
+      summary: Change the status of application to rejected
+      tags :
+        - For rejecting application of prospecting right
+      requestBody: 
+        required : true
+        content :
+          application/json :
+            schema : 
+              type : object
+              properties :
+                  applicationRefNumber :
+                    type  : string
+                    required : true
+      responses :
+        200 :
+          description : Success
+          content :
+            application/json:
+              schema :
+                $ref: "#/components/status/200"
+              example :
+                success : true 
+                msg : "Application rejected"
+        404 :
+          description : Application  Not found 
+          content :
+            application/json:
+              properties :
+                success :
+                  type : boolean
+                msg : 
+                  type : string
+              example :
+                success : true 
+                msg : "No application found with application reference number"
+        500 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+
+# route to get mining permit applications belonging to a particular provinces 
+  /api/v1/mining-permit/applications :
+    get : 
+      tags :
+        - Get all mining permit applications belonging to a province 
+      parameters :
+        - in : query
+          name : province
+          description : write the province name of which you want applications for
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    proofOfApplicationDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    technicalAbilityDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    regulationMapDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    _id:
+                      type: string
+                    uploadedBy:
+                      type: string
+                    mineralType:
+                      type: array
+                      items:
+                        type: string
+                    province:
+                      type: string
+                    applicationRefNumber:
+                      type: string
+                    status:
+                      type: string
+                example: 
+                  - proofOfApplicationDocument:
+                      url: "https://example.com/document1.txt"
+                      id: "c65460c1-ae9a-4db7-9c6d-2e8d5d966e4c"
+                    technicalAbilityDocument:
+                      url: "https://example.com/document2.txt"
+                      id: "8efb3e4b-6db3-4a25-aa34-22dbd4a607a7"
+                    regulationMapDocument:
+                      url: "https://example.com/document4.txt"
+                      id: "4df45d16-31a3-4912-b529-86e51bfbe442"
+                    _id: "someidTQQQDINVGJXFKsomeid"
+                    uploadedBy: "userId"
+                    mineralType:
+                      - "one"
+                      - "two"
+                    province: "myprovince"
+                    applicationRefNumber: "976989"
+                    status: "accepted/rejected"
+
+# route to get prospecting right applications belonging to a particular provinces 
+  /api/v1/prospecting-right/applications :
+    get : 
+      tags :
+        - Get all prospecting right applications belonging to a province 
+      parameters :
+        - in : query
+          name : province
+          description : write the province name of which you want applications for
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    proofOfApplicationDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    environmentalAuthorizationDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    screeningReportDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    regulationMapDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    prospectingWorksProgrammeDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    _id:
+                      type: string
+                    uploadedBy:
+                      type: string
+                    mineralType:
+                      type: array
+                      items:
+                        type: string
+                    province:
+                      type: string
+                    applicationRefNumber:
+                      type: string
+                    status:
+                      type: string
+                example: 
+                  - proofOfApplicationDocument:
+                      url: "https://example.com/document1.txt"
+                      id: "c65460c1-ae9a-4db7-9c6d-2e8d5d966e4c"
+                    environmentalAuthorizationDocument:
+                      url: "https://example.com/document2.txt"
+                      id: "8efb3e4b-6db3-4a25-aa34-22dbd4a607a7"
+                    screeningReportDocument:
+                      url: "https://example.com/document3.txt"
+                      id: "5d70e1d1-46aa-4a95-917b-5ebc87a94c99"
+                    regulationMapDocument:
+                      url: "https://example.com/document4.txt"
+                      id: "4df45d16-31a3-4912-b529-86e51bfbe442"
+                    prospectingWorksProgrammeDocument:
+                      url: "https://example.com/document5.txt"
+                      id: "efb8ff72-4c14-4c2b-a4f0-ecb1ea3de864"
+                    _id: "someidTQQQDINVGJXFKsomeid"
+                    uploadedBy: "userId"
+                    mineralType:
+                      - "one"
+                      - "two"
+                    province: "myprovince"
+                    applicationRefNumber: "976989"
+                    status: "accepted/rejected"
 # acceptance of mining permit
   /api/v1/mining-permit/acceptance-letter:
     post : 
