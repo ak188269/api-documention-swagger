@@ -179,7 +179,9 @@ paths :
                   items : 
                     type : string
                 categoryOfMinerals :
-                  type : string
+                  type : array
+                  items : 
+                    type : string
           multipart/form-data:
             schema : 
               type : object 
@@ -237,7 +239,9 @@ paths :
                   items : 
                     type : string
                 categoryOfMinerals :
-                  type : string
+                  type : array
+                  items : 
+                    type : string
                 province :
                   type : string
           multipart/form-data:
@@ -669,6 +673,93 @@ paths :
                         id:
                           type: string
                     regulationMapDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    _id:
+                      type: string
+                    uploadedBy:
+                      type: string
+                    mineralType:
+                      type: array
+                      items:
+                        type: string
+                    province:
+                      type: string
+                    applicationRefNumber:
+                      type: string
+                    status:
+                      type: string
+                example: 
+                  - proofOfApplicationDocument:
+                      url: "https://example.com/document1.txt"
+                      id: "c65460c1-ae9a-4db7-9c6d-2e8d5d966e4c"
+                    technicalAbilityDocument:
+                      url: "https://example.com/document2.txt"
+                      id: "8efb3e4b-6db3-4a25-aa34-22dbd4a607a7"
+                    regulationMapDocument:
+                      url: "https://example.com/document4.txt"
+                      id: "4df45d16-31a3-4912-b529-86e51bfbe442"
+                    _id: "someidTQQQDINVGJXFKsomeid"
+                    uploadedBy: "userId"
+                    mineralType:
+                      - "one"
+                      - "two"
+                    province: "myprovince"
+                    applicationRefNumber: "976989"
+                    status: "accepted/rejected"
+
+# route to get mining right applications belonging to a particular provinces 
+  /api/v1/mining-right/applications :
+    get : 
+      tags :
+        - Get all mining right applications belonging to a province 
+      parameters :
+        - in : query
+          name : province
+          description : write the province name of which you want applications for
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    proofOfApplicationDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    environmentalAuthorizationDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    technicalAbilityDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    regulationMapDocument:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        id:
+                          type: string
+                    prospectingWorksProgrammeDocument:
                       type: object
                       properties:
                         url:
@@ -1670,8 +1761,10 @@ paths :
               type : object
               properties : 
                 document : 
-                  type : string
-                  format : binary
+                  type : array
+                  items :
+                    type : string
+                    format : binary
               example : 
                 properties : 
                   document : string
@@ -1708,8 +1801,10 @@ paths :
               type : object
               properties : 
                 document : 
-                  type : string
-                  format : binary
+                  type : array
+                  items :
+                    type : string
+                    format : binary
               example : 
                 properties : 
                   document : string
@@ -1729,8 +1824,8 @@ paths :
             application/json :
               schema  : 
                $ref : "#/components/status/404"
-# to upload document of business department
-  /api/v1/business-department/upload/{fieldname} :
+# to upload document of business development department
+  /api/v1/business-development-department/upload/{fieldname} :
     post : 
       summary : Returns a json object
       tags : 
@@ -1745,8 +1840,10 @@ paths :
               type : object
               properties : 
                 document : 
-                  type : string
-                  format : binary
+                  type : array
+                  items :
+                    type : string
+                    format : binary
               example : 
                 properties : 
                   document : string
@@ -1782,8 +1879,10 @@ paths :
               type : object
               properties : 
                 document : 
-                  type : string
-                  format : binary
+                  type : array
+                  items :
+                    type : string
+                    format : binary
               example : 
                 properties : 
                   document : string
@@ -1820,8 +1919,10 @@ paths :
               type : object
               properties : 
                 document : 
-                  type : string
-                  format : binary
+                  type : array
+                  items :
+                    type : string
+                    format : binary
               example : 
                 properties : 
                   document : string
@@ -3006,7 +3107,8 @@ components :
       schema : 
         type : string
         # example : payrollProcessing
-  
+
+                
 
 
 
