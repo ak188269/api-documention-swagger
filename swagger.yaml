@@ -3072,7 +3072,166 @@ paths :
                     description: Number of granted cases.
                     example: 15
           
-
+#  to delete the document from legal department
+  /api/v1/department/legal-department/delete/{fieldname}/{id}:
+    delete:
+      summary: Delete Document
+      description: Deletes a document associated with the legal department. Requires authentication.
+      tags :
+        - Deletes a document associated with the legal department. Requires authentication.
+      parameters:
+        - name: fieldname
+          in: path
+          description: The field name representing the document.
+          required: true
+          schema:
+            type: string
+          example : legalResearchAnalysis
+        - name: id
+          in: path
+          description: The ID of the document to be deleted.
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref : "#/components/delete/200"
+        '401':
+          $ref : "#/components/delete/401"
+        '404':
+          $ref : "#/components/delete/404"
+        '500':
+          $ref : "#components/delete/500"
+#  to delete the document from operations department
+  /api/v1/department/operations-department/delete/{fieldname}/{id}:
+    delete:
+      summary: Delete Document
+      description: Deletes a document associated with the operations department. Requires authentication.
+      tags :
+        - Deletes a document associated with the operations department. Requires authentication.
+      parameters:
+        - name: fieldname
+          in: path
+          description: The field name representing the document.
+          required: true
+          schema:
+            type: string
+          example : productionPlanningCoordination
+        - name: id
+          in: path
+          description: The ID of the document to be deleted.
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref : "#/components/delete/200"
+        '401':
+          $ref : "#/components/delete/401"
+        '404':
+          $ref : "#/components/delete/404"
+        '500':
+          $ref : "#components/delete/500"
+#  to delete the document from finance department
+  /api/v1/department/finance-department/delete/{fieldname}/{id}:
+    delete:
+      summary: Delete Document
+      description: Deletes a document associated with the finance department. Requires authentication.
+      tags :
+        - Deletes a document associated with the finance department. Requires authentication.
+      parameters:
+        - name: fieldname
+          in: path
+          description: The field name representing the document.
+          required: true
+          schema:
+            type: string
+          example : payrollProcessing
+        - name: id
+          in: path
+          description: The ID of the document to be deleted.
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref : "#/components/delete/200"
+        '401':
+          $ref : "#/components/delete/401"
+        '404':
+          $ref : "#/components/delete/404"
+        '500':
+          $ref : "#components/delete/500"
+#  to delete the document from business-development department
+  /api/v1/department/business-development-department/delete/{fieldname}/{id}:
+    delete:
+      summary: Delete Document
+      description: Deletes a document associated with the business-development department. Requires authentication.
+      tags:
+        -  Deletes a document associated with the business-development department. Requires authentication.
+      parameters:
+        - name: fieldname
+          in: path
+          description: The field name representing the document.
+          required: true
+          schema:
+            type: string
+          example : marketResearchAnalysis
+        - name: id
+          in: path
+          description: The ID of the document to be deleted.
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref : "#/components/delete/200"
+        '401':
+          $ref : "#/components/delete/401"
+        '404':
+          $ref : "#/components/delete/404"
+        '500':
+          $ref : "#components/delete/500"
+#  to delete the document from administration department
+  /api/v1/department/administration-department/delete/{fieldname}/{id}:
+    delete:
+      summary: Delete Document
+      description: Deletes a document associated with the administration department. Requires authentication.
+      tags :
+        - Deletes a document associated with the administration department. Requires authentication.
+      parameters:
+        - name: fieldname
+          in: path
+          description: The field name representing the document.
+          required: true
+          schema:
+            type: string
+          example : productionPlanningCoordination
+        - name: id
+          in: path
+          description: The ID of the document to be deleted.
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          $ref : "#/components/delete/200"
+        '401':
+          $ref : "#/components/delete/401"
+        '404':
+          $ref : "#/components/delete/404"
+        '500':
+          $ref : "#components/delete/500"
 
                   
               
@@ -3107,6 +3266,71 @@ components :
       schema : 
         type : string
         # example : payrollProcessing
+  delete :
+    200:
+      description: Document deleted successfully.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                description: Indicates whether the operation was successful.
+                example: true
+              message:
+                type: string
+                description: A success message.
+                example: Document deleted successfully.
+    401:
+      description: Unauthorized Authorisation token is missing or invalid.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                description: Indicates whether the operation was successful.
+                example: false
+              message:
+                type: string
+                description: An error message.
+                example: Unauthorized Authentication token is missing or invalid.
+    404:
+      description: Document not found.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                description: Indicates whether the operation was successful.
+                example: false
+              message:
+                type: string
+                description: An error message.
+                example: No document found.
+    500:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                description: Indicates whether the operation was successful.
+                example: false
+              error:
+                type: string
+                description: The error message.
+                example: An internal server error occurred.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
 
                 
 
