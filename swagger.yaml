@@ -1746,7 +1746,7 @@ paths :
                $ref : "#/components/status/404"
 
 # to upload document of leagel department
-  /api/v1/legal-department/upload/{fieldname} :
+  /api/v1/department/legal-department/upload/{fieldname} :
     post : 
       summary : Returns a json object
       tags : 
@@ -1786,7 +1786,7 @@ paths :
                $ref : "#/components/status/404"
 
 # to upload document of leagel department
-  /api/v1/finance-department/upload/{fieldname} :
+  /api/v1/department/finance-department/upload/{fieldname} :
     post : 
       summary : Returns a json object
       tags : 
@@ -1825,7 +1825,7 @@ paths :
               schema  : 
                $ref : "#/components/status/404"
 # to upload document of business development department
-  /api/v1/business-development-department/upload/{fieldname} :
+  /api/v1/department/business-development-department/upload/{fieldname} :
     post : 
       summary : Returns a json object
       tags : 
@@ -1864,7 +1864,7 @@ paths :
               schema  : 
                $ref : "#/components/status/404"
 # to upload document of administration department
-  /api/v1/administration-department/upload/{fieldname} :
+  /api/v1/department/administration-department/upload/{fieldname} :
     post : 
       summary : Returns a json object
       tags : 
@@ -1904,7 +1904,7 @@ paths :
                $ref : "#/components/status/404"
 
 # to upload document of operatoins department
-  /api/v1/operations-department/upload/{fieldname} :
+  /api/v1/department/operations-department/upload/{fieldname} :
     post : 
       summary : Returns a json object
       tags : 
