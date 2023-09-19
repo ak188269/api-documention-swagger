@@ -1968,151 +1968,191 @@ paths :
                     type: boolean
                     description: Indicates whether the request was successful.
                   data:
-                    type: array
-                    description: List of documents uploaded by the user.
-                    items:
-                      type: object
-                      properties:
-                        legalResearchAnalysis:
-                          type: array
-                          description: List of legal research and analysis documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/legal-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "12345"
-                        contractReviewDrafting:
-                          type: array
-                          description: List of contract review and drafting documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        regulatoryCompliance:
-                          type: array
-                          description: List of regulatoryCompliance documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        permittingLicensing:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        riskManagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        disputeResolutionLitigation:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        legalAdviceOpinions:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        dueDiligence:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        internalTrainingAwareness:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        externalEngagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
+                    type: object
+                    description: Object containing document categories in the legal department.
+                    properties:
+                      legalResearchAnalysis:
+                        type: array
+                        description: Legal research and analysis documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "legal-research-analysis-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/legal-research-analysis-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "12345"
+                      contractReviewDrafting:
+                        type: array
+                        description: Contract review and drafting documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "contract-review-drafting-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/contract-review-drafting-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      regulatoryCompliance:
+                        type: array
+                        description: Regulatory compliance documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "regulatory-compliance-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/regulatory-compliance-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      permittingLicensing:
+                        type: array
+                        description: Permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "permitting-licensing-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/permitting-licensing-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      riskManagement:
+                        type: array
+                        description: Risk management documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "risk-management-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/risk-management-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      disputeResolutionLitigation:
+                        type: array
+                        description: Dispute resolution and litigation documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "dispute-resolution-litigation-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/dispute-resolution-litigation-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      legalAdviceOpinions:
+                        type: array
+                        description: Legal advice and opinions documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "legal-advice-opinions-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/legal-advice-opinions-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      dueDiligence:
+                        type: array
+                        description: Due diligence documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "due-diligence-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/due-diligence-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      internalTrainingAwareness:
+                        type: array
+                        description: Internal training and awareness documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "internal-training-awareness-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/internal-training-awareness-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      externalEngagement:
+                        type: array
+                        description: External engagement documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "external-engagement-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/external-engagement-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+
+
                         
                         # Add more properties for other document types here.
 
@@ -2169,154 +2209,190 @@ paths :
                     type: boolean
                     description: Indicates whether the request was successful.
                   data:
-                    type: array
-                    description: List of documents uploaded by the user.
-                    items:
-                      type: object
-                      properties:
-                        payrollProcessing:
-                          type: array
-                          description: List of legal research and analysis documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/legal-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "12345"
-                        benefitsAdministration:
-                          type: array
-                          description: List of legal research and analysis documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/benefitsAdministration-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "12345"
-                        financialDataManagement:
-                          type: array
-                          description: List of contract review and drafting documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        payeTaxReturns:
-                          type: array
-                          description: List of regulatoryCompliance documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        budgetingForecasting:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        financialPlanningAnalysis:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        cashflowManagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        financialReporting:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/financialReporting-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        financialControlsCompliance:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        stakeholderCommunication:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                    
-                        
-                        # Add more properties for other document types here.
+                    type: object
+                    description: Object containing document categories.
+                    properties:
+                      payrollProcessing:
+                        type: array
+                        description: List of payroll processing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "payroll-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/payroll-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "12345"
+                      benefitsAdministration:
+                        type: array
+                        description: List of benefits administration documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "benefits-admin-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/benefits-admin-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "12345"
+                      financialDataManagement:
+                        type: array
+                        description: List of financial data management documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "financial-data-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/financial-data-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      payeTaxReturns:
+                        type: array
+                        description: List of PAYE tax returns documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "paye-tax-returns-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/paye-tax-returns-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      budgetingForecasting:
+                        type: array
+                        description: List of budgeting and forecasting documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "budgeting-forecasting-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/budgeting-forecasting-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      financialPlanningAnalysis:
+                        type: array
+                        description: List of financial planning and analysis documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "financial-planning-analysis-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/financial-planning-analysis-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      cashflowManagement:
+                        type: array
+                        description: List of cashflow management documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "cashflow-management-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/cashflow-management-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      financialReporting:
+                        type: array
+                        description: List of financial reporting documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "financial-reporting-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/financial-reporting-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      financialControlsCompliance:
+                        type: array
+                        description: List of financial controls compliance documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "financial-controls-compliance-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/financial-controls-compliance-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      stakeholderCommunication:
+                        type: array
+                        description: List of stakeholder communication documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "stakeholder-communication-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/stakeholder-communication-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+
 
         '404':
           description: No document found
@@ -2371,151 +2447,190 @@ paths :
                     type: boolean
                     description: Indicates whether the request was successful.
                   data:
-                    type: array
-                    description: List of documents uploaded by the user.
-                    items:
-                      type: object
-                      properties:
-                        productionPlanningCoordination:
-                          type: array
-                          description: List of legal research and analysis documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/legal-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "12345"
-                        supervisionOfMiningOperations:
-                          type: array
-                          description: List of contract review and drafting documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        safetyEnvironmentalCompliance:
-                          type: array
-                          description: List of regulatoryCompliance documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        equipmentMaintenanceManagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        inventorySupplyChainManagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        qualityControlAssurance:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        reportingDocumentations:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        continuousImprovement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        teamManagementDevelopment:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        healthSafety:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
+                    type: object
+                    description: Object containing document categories.
+                    properties:
+                      productionPlanningCoordination:
+                        type: array
+                        description: Production planning and coordination documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "production-planning-coordination-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/production-planning-coordination-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "12345"
+                      supervisionOfMiningOperations:
+                        type: array
+                        description: Supervision of mining operations documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "supervision-of-mining-operations-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/supervision-of-mining-operations-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      safetyEnvironmentalCompliance:
+                        type: array
+                        description: Safety and environmental compliance documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "safety-environmental-compliance-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/safety-environmental-compliance-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      equipmentMaintenanceManagement:
+                        type: array
+                        description: Equipment maintenance management documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "equipment-maintenance-management-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/equipment-maintenance-management-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      inventorySupplyChainManagement:
+                        type: array
+                        description: Inventory and supply chain management documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "inventory-supply-chain-management-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/inventory-supply-chain-management-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      qualityControlAssurance:
+                        type: array
+                        description: Quality control and assurance documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "quality-control-assurance-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/quality-control-assurance-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      reportingDocumentations:
+                        type: array
+                        description: Reporting and documentations documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "reporting-documentations-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/reporting-documentations-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      continuousImprovement:
+                        type: array
+                        description: Continuous improvement documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "continuous-improvement-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/continuous-improvement-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      teamManagementDevelopment:
+                        type: array
+                        description: Team management and development documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "team-management-development-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/team-management-development-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      healthSafety:
+                        type: array
+                        description: Health and safety documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "health-safety-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/health-safety-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+
                         
                         # Add more properties for other document types here.
 
@@ -2571,152 +2686,190 @@ paths :
                     type: boolean
                     description: Indicates whether the request was successful.
                   data:
-                    type: array
-                    description: List of documents uploaded by the user.
-                    items:
-                      type: object
-                      properties:
-                        marketResearchAnalysis:
-                          type: array
-                          description: List of legal research and analysis documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/legal-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "12345"
-                        prospectingLeadGeneration:
-                          type: array
-                          description: List of contract review and drafting documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        relationshipManagement:
-                          type: array
-                          description: List of regulatoryCompliance documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        proposalDevelopment:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        negotiatingDealStructuring:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        projectEvaluationDueDiligence:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        networkingIndustryEngagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        collaborationWithInternalTeams:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        marketIntelligenceReporting:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        strategicPlanningGoalSetting:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        
+                    type: object
+                    description: Object containing document categories.
+                    properties:
+                      marketResearchAnalysis:
+                        type: array
+                        description: List of legal research and analysis documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "legal-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/legal-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "12345"
+                      prospectingLeadGeneration:
+                        type: array
+                        description: List of contract review and drafting documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "contract-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/contract-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      relationshipManagement:
+                        type: array
+                        description: List of regulatory compliance documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "relationship-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/relationship-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      proposalDevelopment:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "proposal-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/proposal-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      negotiatingDealStructuring:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "negotiating-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/negotiating-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      projectEvaluationDueDiligence:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "project-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/project-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      networkingIndustryEngagement:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "networking-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/networking-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      collaborationWithInternalTeams:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "collaboration-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/collaboration-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      marketIntelligenceReporting:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "market-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/market-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      strategicPlanningGoalSetting:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "strategic-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/strategic-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+
                         # Add more properties for other document types here.
 
         '404':
@@ -2772,152 +2925,190 @@ paths :
                     type: boolean
                     description: Indicates whether the request was successful.
                   data:
-                    type: array
-                    description: List of documents uploaded by the user.
-                    items:
-                      type: object
-                      properties:
-                        productionPlanningCoordination:
-                          type: array
-                          description: List of legal research and analysis documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/legal-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "12345"
-                        supervisionOfMiningOperations:
-                          type: array
-                          description: List of contract review and drafting documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        safetyEnvironmentalCompliance:
-                          type: array
-                          description: List of regulatoryCompliance documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        equipmentMaintenanceManagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        inventorySupplyChainManagement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        qualityControlAssurance:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        reportingDocumentations:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        continuousImprovement:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        teamManagementDevelopment:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        healthSafety:
-                          type: array
-                          description: List of permittingLicensing documents.
-                          items:
-                            type: object
-                            properties:
-                              url:
-                                type: string
-                                description: URL of the document.
-                                example: "https://example.com/contract-document.pdf"
-                              id:
-                                type: string
-                                description: ID of the document.
-                                example: "67890"
-                        
+                    type: object
+                    description: Object containing document categories.
+                    properties:
+                      productionPlanningCoordination:
+                        type: array
+                        description: List of legal research and analysis documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "legal-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/legal-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "12345"
+                      supervisionOfMiningOperations:
+                        type: array
+                        description: List of contract review and drafting documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "contract-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/contract-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      safetyEnvironmentalCompliance:
+                        type: array
+                        description: List of regulatory compliance documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "safety-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/safety-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      equipmentMaintenanceManagement:
+                        type: array
+                        description: List of permitting and licensing documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "equipment-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/equipment-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      inventorySupplyChainManagement:
+                        type: array
+                        description: List of inventory and supply chain management documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "inventory-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/inventory-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      qualityControlAssurance:
+                        type: array
+                        description: List of quality control and assurance documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "quality-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/quality-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      reportingDocumentations:
+                        type: array
+                        description: List of reporting and documentations.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "reporting-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/reporting-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      continuousImprovement:
+                        type: array
+                        description: List of continuous improvement documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "improvement-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/improvement-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      teamManagementDevelopment:
+                        type: array
+                        description: List of team management and development documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "team-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/team-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+                      healthSafety:
+                        type: array
+                        description: List of health and safety documents.
+                        items:
+                          type: object
+                          properties:
+                            filename:
+                              type: string
+                              description: Filename of the document.
+                              example: "health-document.pdf"
+                            url:
+                              type: string
+                              description: URL of the document.
+                              example: "https://example.com/health-document.pdf"
+                            id:
+                              type: string
+                              description: ID of the document.
+                              example: "67890"
+
                         # Add more properties for other document types here.
 
         '404':
