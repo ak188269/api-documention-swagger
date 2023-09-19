@@ -2203,6 +2203,20 @@ paths :
                                 type: string
                                 description: ID of the document.
                                 example: "12345"
+                        benefitsAdministration:
+                          type: array
+                          description: List of legal research and analysis documents.
+                          items:
+                            type: object
+                            properties:
+                              url:
+                                type: string
+                                description: URL of the document.
+                                example: "https://example.com/benefitsAdministration-document.pdf"
+                              id:
+                                type: string
+                                description: ID of the document.
+                                example: "12345"
                         financialDataManagement:
                           type: array
                           description: List of contract review and drafting documents.
@@ -2269,6 +2283,20 @@ paths :
                                 type: string
                                 description: URL of the document.
                                 example: "https://example.com/contract-document.pdf"
+                              id:
+                                type: string
+                                description: ID of the document.
+                                example: "67890"
+                        financialReporting:
+                          type: array
+                          description: List of permittingLicensing documents.
+                          items:
+                            type: object
+                            properties:
+                              url:
+                                type: string
+                                description: URL of the document.
+                                example: "https://example.com/financialReporting-document.pdf"
                               id:
                                 type: string
                                 description: ID of the document.
