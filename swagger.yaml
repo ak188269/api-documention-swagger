@@ -1954,13 +1954,6 @@ paths :
         - to retrieve documents uploaded by a user in a legal department.
       security:
         - BearerAuth: [] 
-      parameters:
-        - in: path
-          name: department
-          required: true
-          description: The department name (e.g., "administration-department").
-          schema:
-            type: string
         # You may add more parameters here if needed, e.g., authentication headers.
 
       responses:
@@ -2163,14 +2156,6 @@ paths :
         - to retrieve documents uploaded by a user in a finance department.
       security:
         - BearerAuth: [] 
-      parameters:
-        - in: path
-          name: department
-          required: true
-          description: The department name (e.g., "administration-department").
-          schema:
-            type: string
-        # You may add more parameters here if needed, e.g., authentication headers.
 
       responses:
         '200':
@@ -2373,14 +2358,6 @@ paths :
         - to retrieve documents uploaded by a user in a operations department.
       security:
         - BearerAuth: [] 
-      parameters:
-        - in: path
-          name: department
-          required: true
-          description: The department name (e.g., "administration-department").
-          schema:
-            type: string
-        # You may add more parameters here if needed, e.g., authentication headers.
 
       responses:
         '200':
@@ -2581,14 +2558,6 @@ paths :
         - to retrieve documents uploaded by a user in a business development department.
       security:
         - BearerAuth: [] 
-      parameters:
-        - in: path
-          name: department
-          required: true
-          description: The department name (e.g., "administration-department").
-          schema:
-            type: string
-        # You may add more parameters here if needed, e.g., authentication headers.
 
       responses:
         '200':
@@ -2790,14 +2759,6 @@ paths :
         - to retrieve documents uploaded by a user in a administration department.
       security:
         - BearerAuth: [] 
-      parameters:
-        - in: path
-          name: department
-          required: true
-          description: The department name (e.g., "administration-department").
-          schema:
-            type: string
-        # You may add more parameters here if needed, e.g., authentication headers.
 
       responses:
         '200':
