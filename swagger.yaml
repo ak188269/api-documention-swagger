@@ -100,6 +100,83 @@ paths :
             application/json :
               schema  : 
                 $ref : "#/components/status/404"
+#  Log out 
+
+  /api/v1/user/logout:
+    post:
+      summary: Logout User
+      description: Logs the user out and clears the JWT cookie.
+      tags :
+        - Log out of the application
+      responses:
+        '200':
+          description: Successful logout
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates whether the logout was successful.
+                    example : true
+                  message:
+                    type: string
+                    description: Logout success message.
+                    example : Log out successfully
+# get user profile
+  /api/v1/user/profile:
+    get:
+      summary: Retrieve User Profile
+      description: Retrieves the user's profile information.
+      tags :
+        - Get user profile
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates whether the request was successful.
+                  data:
+                    type: object
+                    description: User's profile information.
+                    properties:
+                      _id:
+                        type: string
+                        description: Unique identifier for the user.
+                      name:
+                        type: string
+                        description: Name of the user.
+                      email:
+                        type: string
+                        description: Email address of the user.
+                      miningPermit:
+                        type: array
+                        items:
+                          type: string
+                        description: List of mining permits associated with the user.
+                      miningRight:
+                        type: array
+                        items:
+                          type: string
+                        description: List of mining rights associated with the user.
+                      prospectingRight:
+                        type: array
+                        items:
+                          type: string
+                        description: List of prospecting rights associated with the user.
+                      __v:
+                        type: integer
+                        description: Version of the user's profile.
+
+      security: []  # You can specify security requirements here if needed.
+
+
 # apply for mining premit
   /api/v1/application/mining-permit :
     post : 
@@ -648,6 +725,11 @@ paths :
         - in : query
           name : province
           description : write the province name of which you want applications for
+          example : myprovince
+        - in : query
+          name : status
+          description : write the status of the application for which you want applications eg . accepted , rejected , granted or lodged if status is not provided it will be lodged by default
+          example : lodged
       responses:
         '200':
           description: Successful response
@@ -721,6 +803,11 @@ paths :
         - in : query
           name : province
           description : write the province name of which you want applications for
+          example : myprovince
+        - in : query
+          name : status
+          description : write the status of the application for which you want applications eg . accepted , rejected , granted or lodged if status is not provided it will be lodged by default
+          example : lodged
       responses:
         '200':
           description: Successful response
@@ -808,6 +895,11 @@ paths :
         - in : query
           name : province
           description : write the province name of which you want applications for
+          example : myprovince
+        - in : query
+          name : status
+          description : write the status of the application for which you want applications eg . accepted , rejected , granted or lodged if status is not provided it will be lodged by default
+          example : lodged
       responses:
         '200':
           description: Successful response
@@ -3141,11 +3233,11 @@ paths :
                     description: A message indicating the error.
                     example: "Internal Server Error"
           
-# get status of mining permit
+# Get number of lodged , accepted , rejected and granted applicationmining permit
   /api/v1/mining-permit/status:
     get:
       tags :
-        - Get status of mining permit
+        - Get number of lodged , accepted , rejected and granted applicationmining permit
       summary: Retrieve Department Status
       description: |
         This endpoint allows you to retrieve the status of a department.
@@ -3178,11 +3270,11 @@ paths :
                     description: Number of granted cases.
                     example: 15
           
-# get status of mining right
+# Get number of lodged , accepted , rejected and granted applicationmining right
   /api/v1/mining-right/status:
     get:
       tags :
-        - Get status of mining right
+        - Get number of lodged , accepted , rejected and granted applicationmining right
       summary: Retrieve Department Status
       description: |
         This endpoint allows you to retrieve the status of a department.
@@ -3215,11 +3307,11 @@ paths :
                     description: Number of granted cases.
                     example: 15
           
-# get status of prospecting right
+# Get number of lodged , accepted , rejected and granted applicationprospecting right
   /api/v1/prospecting-right/status:
     get:
       tags :
-        - Get status of prospecting right
+        - Get number of lodged , accepted , rejected and granted applicationprospecting right
       summary: Retrieve Department Status
       description: |
         This endpoint allows you to retrieve the status of a department.
