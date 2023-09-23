@@ -251,6 +251,8 @@ paths :
               properties : 
                 applicationRefNumber :
                   type : string 
+                province :
+                  type : string 
                 mineralType :
                   type : array 
                   items : 
@@ -445,275 +447,6 @@ paths :
               schema  : 
                $ref : "#/components/status/404"
 
-
-#  request to change status to accepted i.e accept an application for mining permit
-  /api/v1/mining-permit/accept:
-    put : 
-      summary: Change the status of application to accepted
-      tags :
-        - For accepting application of mining permit
-      requestBody: 
-        required : true
-        content :
-          application/json :
-            schema : 
-              type : object
-              properties :
-                  applicationRefNumber :
-                    type  : string
-                    required : true
-      responses :
-        200 :
-          description : Success
-          content :
-            application/json:
-              schema :
-                $ref: "#/components/status/200"
-              example :
-                success : true 
-                msg : "Application accepted successfully"
-        404 :
-          description : Application  Not found 
-          content :
-            application/json:
-              properties :
-                success :
-                  type : boolean
-                msg : 
-                  type : string
-              example :
-                success : true 
-                msg : "No application found with application reference number"
-        500 : 
-          description : Error 😔
-          content : 
-            application/json :
-              schema  : 
-               $ref : "#/components/status/404"
-
-#  request to change status to accepted i.e accept an application for mining right
-  /api/v1/mining-right/accept:
-    put : 
-      summary: Change the status of application to accepted
-      tags :
-        - For accepting application of mining right
-      requestBody: 
-        required : true
-        content :
-          application/json :
-            schema : 
-              type : object
-              properties :
-                  applicationRefNumber :
-                    type  : string
-                    required : true
-      responses :
-        200 :
-          description : Success
-          content :
-            application/json:
-              schema :
-                $ref: "#/components/status/200"
-              example :
-                success : true 
-                msg : "Application accepted successfully"
-        404 :
-          description : Application  Not found 
-          content :
-            application/json:
-              properties :
-                success :
-                  type : boolean
-                msg : 
-                  type : string
-              example :
-                success : true 
-                msg : "No application found with application reference number"
-        500 : 
-          description : Error 😔
-          content : 
-            application/json :
-              schema  : 
-               $ref : "#/components/status/404"
-
-#  request to change status to accepted i.e accept an application for propecting right
-  /api/v1/prospecting-right/accept:
-    put : 
-      summary: Change the status of application to accepted
-      tags :
-        - For accepting application of prospecting right
-      requestBody: 
-        required : true
-        content :
-          application/json :
-            schema : 
-              type : object
-              properties :
-                  applicationRefNumber :
-                    type  : string
-                    required : true
-      responses :
-        200 :
-          description : Success
-          content :
-            application/json:
-              schema :
-                $ref: "#/components/status/200"
-              example :
-                success : true 
-                msg : "Application accepted successfully"
-        404 :
-          description : Application  Not found 
-          content :
-            application/json:
-              properties :
-                success :
-                  type : boolean
-                msg : 
-                  type : string
-              example :
-                success : true 
-                msg : "No application found with application reference number"
-        500 : 
-          description : Error 😔
-          content : 
-            application/json :
-              schema  : 
-               $ref : "#/components/status/404"
-#  request to change status to rejected i.e reject an application for mining permit
-  /api/v1/mining-permit/reject:
-    put : 
-      summary: Change the status of application to accepted
-      tags :
-        - For rejecting application of mining permit
-      requestBody: 
-        required : true
-        content :
-          application/json :
-            schema : 
-              type : object
-              properties :
-                  applicationRefNumber :
-                    type  : string
-                    required : true
-      responses :
-        200 :
-          description : Success
-          content :
-            application/json:
-              schema :
-                $ref: "#/components/status/200"
-              example :
-                success : true 
-                msg : "Application rejected"
-        404 :
-          description : Application  Not found 
-          content :
-            application/json:
-              properties :
-                success :
-                  type : boolean
-                msg : 
-                  type : string
-              example :
-                success : true 
-                msg : "No application found with application reference number"
-        500 : 
-          description : Error 😔
-          content : 
-            application/json :
-              schema  : 
-               $ref : "#/components/status/404"
-
-#  request to change status to rejected i.e reject an application for mining right
-  /api/v1/mining-right/reject:
-    put : 
-      summary: Change the status of application to rejected
-      tags :
-        - For rejecting application of mining right
-      requestBody: 
-        required : true
-        content :
-          application/json :
-            schema : 
-              type : object
-              properties :
-                  applicationRefNumber :
-                    type  : string
-                    required : true
-      responses :
-        200 :
-          description : Success
-          content :
-            application/json:
-              schema :
-                $ref: "#/components/status/200"
-              example :
-                success : true 
-                msg : "Application rejected"
-        404 :
-          description : Application  Not found 
-          content :
-            application/json:
-              properties :
-                success :
-                  type : boolean
-                msg : 
-                  type : string
-              example :
-                success : true 
-                msg : "No application found with application reference number"
-        500 : 
-          description : Error 😔
-          content : 
-            application/json :
-              schema  : 
-               $ref : "#/components/status/404"
-
-#  request to change status to rejected i.e reject an application for propecting right
-  /api/v1/prospecting-right/reject:
-    put : 
-      summary: Change the status of application to rejected
-      tags :
-        - For rejecting application of prospecting right
-      requestBody: 
-        required : true
-        content :
-          application/json :
-            schema : 
-              type : object
-              properties :
-                  applicationRefNumber :
-                    type  : string
-                    required : true
-      responses :
-        200 :
-          description : Success
-          content :
-            application/json:
-              schema :
-                $ref: "#/components/status/200"
-              example :
-                success : true 
-                msg : "Application rejected"
-        404 :
-          description : Application  Not found 
-          content :
-            application/json:
-              properties :
-                success :
-                  type : boolean
-                msg : 
-                  type : string
-              example :
-                success : true 
-                msg : "No application found with application reference number"
-        500 : 
-          description : Error 😔
-          content : 
-            application/json :
-              schema  : 
-               $ref : "#/components/status/404"
 
 
 # route to get mining permit applications belonging to a particular provinces 
@@ -988,7 +721,7 @@ paths :
     post : 
       summary : Returns a json object 
       tags : 
-        - For Acceptance of mining permit and appointment of environement consultant
+        - For Acceptance of mining permit 
       requestBody : 
         required : true 
         content : 
@@ -1030,7 +763,7 @@ paths :
     post : 
       summary : Returns a json object 
       tags : 
-        - For Acceptance of prospecting rights and appointment of environement consultant
+        - For Acceptance of prospecting rights 
       requestBody : 
         required : true 
         content : 
@@ -1073,7 +806,7 @@ paths :
     post : 
       summary : Returns a json object 
       tags : 
-        - For Acceptance of mining rights and appointment of environement consultant
+        - For Acceptance of mining rights 
       requestBody : 
         required : true 
         content : 
@@ -1616,7 +1349,7 @@ paths :
             schema : 
               type : object 
               properties : 
-                  environmentalAuthorizationDocument:
+                  environmentalAuthorizationAcceptedDocument:
                     type : string
                     format : binary
                   
@@ -1656,7 +1389,7 @@ paths :
             schema : 
               type : object 
               properties : 
-                  environmentalAuthorizationDocument:
+                  environmentalAuthorizationAcceptedDocument:
                     type : string
                     format : binary
                   
@@ -1696,7 +1429,7 @@ paths :
             schema : 
               type : object 
               properties : 
-                  environmentalAuthorizationDocument:
+                  environmentalAuthorizationAcceptedDocument:
                     type : string
                     format : binary
                   
@@ -3604,20 +3337,4 @@ components :
       type: http
       scheme: bearer
 
-                
-
-
-
-
-      
-
-
               
-
-
-                
-
-
-
-      
-    
