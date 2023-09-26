@@ -3238,9 +3238,304 @@ paths :
         '500':
           $ref : "#components/delete/500"
 
-                  
-              
-          
+
+# to upload file to project development
+  /api/v1/project-development/upload/{fieldname}:
+    post:
+      summary: Upload a file
+      tags :
+        - upload file to project development
+      parameters:
+        - in: path
+          name: fieldname
+          required: true
+          example : Any one of the following ['consultation','landAccessReport','drillingPlan','drillingQuotation','uploadGeologicalReport','communicateWithMunicipalities','communicateWithCommunityForums','establishmentProtocols','businessCase','reportOnOutcomes']
+          schema:
+            type: string
+          description: The name of the field for the uploaded file.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                document:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates if the upload was successful.
+                  msg:
+                    type: string
+                    description: A message describing the upload status.
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        fieldname:
+                          type: string
+                          description: The name of the uploaded field.
+                        filename:
+                          type: string
+                          description: The name of the uploaded file.
+                        url:
+                          type: string
+                          format: uri
+                          description: The URL to access the uploaded file.
+                        id:
+                          type: string
+                          description: A unique identifier for the uploaded file.
+        400 : 
+          description : Error 😔
+          content : 
+            application/json :
+              schema  : 
+               $ref : "#/components/status/404"
+
+# find document uploaded to project development
+
+  /api/v1/project-development/find/document-uploaded:
+    get:
+      summary: Find data
+      tags :
+        - find document uploaded to project development
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates if the request was successful.
+                  data:
+                    type: object
+                    properties:
+                      _id:
+                        type: string
+                        description: The unique identifier for the data.
+                      uploadedBy:
+                        type: string
+                        description: The unique identifier of the uploader.
+                      landAccessReport:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the land access report.
+                            filename:
+                              type: string
+                              description: The name of the land access report file.
+                            id:
+                              type: string
+                              description: A unique identifier for the land access report.
+                            _id:
+                              type: string
+                              description: The unique identifier for this report entry.
+                      consultation:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the consultation data.
+                            filename:
+                              type: string
+                              description: The name of the consultation file.
+                            id:
+                              type: string
+                              description: A unique identifier for the consultation data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this consultation entry.
+                      drillingPlan:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the drilling plan data.
+                            filename:
+                              type: string
+                              description: The name of the drilling plan file.
+                            id:
+                              type: string
+                              description: A unique identifier for the drilling plan data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this drilling plan entry.
+                      drillingQuotation:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the drilling quotation data.
+                            filename:
+                              type: string
+                              description: The name of the drilling quotation file.
+                            id:
+                              type: string
+                              description: A unique identifier for the drilling quotation data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this drilling quotation entry.
+                      uploadGeologicalReport:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the uploaded geological report data.
+                            filename:
+                              type: string
+                              description: The name of the uploaded geological report file.
+                            id:
+                              type: string
+                              description: A unique identifier for the uploaded geological report data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this uploaded geological report entry.
+                      communicateWithMunicipalities:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the communication with municipalities data.
+                            filename:
+                              type: string
+                              description: The name of the communication with municipalities file.
+                            id:
+                              type: string
+                              description: A unique identifier for the communication with municipalities data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this communication with municipalities entry.
+                      communicateWithCommunityForums:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the communication with community forums data.
+                            filename:
+                              type: string
+                              description: The name of the communication with community forums file.
+                            id:
+                              type: string
+                              description: A unique identifier for the communication with community forums data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this communication with community forums entry.
+                      establishmentProtocols:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the establishment protocols data.
+                            filename:
+                              type: string
+                              description: The name of the establishment protocols file.
+                            id:
+                              type: string
+                              description: A unique identifier for the establishment protocols data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this establishment protocols entry.
+                      businessCase:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the business case data.
+                            filename:
+                              type: string
+                              description: The name of the business case file.
+                            id:
+                              type: string
+                              description: A unique identifier for the business case data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this business case entry.
+                      reportOnOutcomes:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              format: uri
+                              description: The URL to access the report on outcomes data.
+                            filename:
+                              type: string
+                              description: The name of the report on outcomes file.
+                            id:
+                              type: string
+                              description: A unique identifier for the report on outcomes data.
+                            _id:
+                              type: string
+                              description: The unique identifier for this report on outcomes entry.
+ # Delete document uploded in project development
+  /api/v1/project-development/delete/{fieldname}/{id}:
+    delete:
+      summary: Delete a document
+      tags :
+        - Delete document uploded in project development
+      parameters:
+        - in: path
+          name: fieldname
+          required: true
+          schema:
+            type: string
+          description: The name of the field for the document.
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The unique identifier of the document.
+      responses:
+        '200':
+          $ref : "#/components/delete/200"
+        '401':
+          $ref : "#/components/delete/401"
+        '404':
+          $ref : "#/components/delete/404"
+        '500':
+          $ref : "#components/delete/500"     
 
 components :
   status :
@@ -3337,4 +3632,20 @@ components :
       type: http
       scheme: bearer
 
+                
+
+
+
+
+      
+
+
               
+
+
+                
+
+
+
+      
+    
