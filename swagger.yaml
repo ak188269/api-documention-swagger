@@ -3549,6 +3549,7 @@ paths :
       responses :
         200 : 
           description : You will be redirected to login with google page
+
   /api/v1/google/shedule/meeting:
     post:
       summary: Schedule a meeting
@@ -3577,6 +3578,7 @@ paths :
                 content:
                   type: string
                   description: Additional meeting details or content.
+                  example : In string format any one of these [Stakeholder Management,Stakeholders Update,Mobilisation Of Drilling Team,Business Development Update,License & Applications Updates,Drilling Plan Updates]
                   
       responses:
         '200':
@@ -3790,4 +3792,20 @@ components :
       type: http
       scheme: bearer
 
+                
 
+
+
+
+      
+
+
+              
+
+
+                
+
+
+
+      
+    
