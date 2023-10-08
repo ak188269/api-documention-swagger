@@ -3643,6 +3643,58 @@ paths :
                   error:
                     type: string
                     description: Error message.
+
+  /api/v1/google/count:
+    get:
+      summary: Count content occurrences
+      tags :
+        - Get count of each type of meeting content wise or topic wise
+      description: |
+        Counts the occurrences of various content options in the "Meeting" collection.
+      responses:
+        '200':
+          description: Content counts retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates the success of the operation.
+                  data:
+                    type: object
+                    properties:
+                      "Stakeholder Management":
+                        type: integer
+                        description: Count of "Stakeholder Management" occurrences.
+                      "Stakeholders Update":
+                        type: integer
+                        description: Count of "Stakeholders Update" occurrences.
+                      "Mobilisation Of Drilling Team":
+                        type: integer
+                        description: Count of "Mobilisation Of Drilling Team" occurrences.
+                      "Business Development Update":
+                        type: integer
+                        description: Count of "Business Development Update" occurrences.
+                      "License & Applications Updates":
+                        type: integer
+                        description: Count of "License & Applications Updates" occurrences.
+                      "Drilling Plan Updates":
+                        type: integer
+                        description: Count of "Drilling Plan Updates" occurrences.
+              example:
+                success: true
+                data:
+                  "Stakeholder Management": 10
+                  "Stakeholders Update": 5
+                  "Mobilisation Of Drilling Team": 8
+                  "Business Development Update": 3
+                  "License & Applications Updates": 6
+                  "Drilling Plan Updates": 2
+
+
+
 components :
   status :
     404 : 
@@ -3738,20 +3790,4 @@ components :
       type: http
       scheme: bearer
 
-                
 
-
-
-
-      
-
-
-              
-
-
-                
-
-
-
-      
-    
