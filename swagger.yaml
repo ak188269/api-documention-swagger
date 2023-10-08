@@ -3537,6 +3537,112 @@ paths :
         '500':
           $ref : "#components/delete/500"     
 
+  /api/v1/google/auth:
+    get:
+      summary: Authenticate with Google
+      tags :
+        - Login with google
+      description: |
+        This endpoint allows users to authenticate with Google.
+        After successful authentication, users can access Google services.
+        either use <a href="http://localhost:7000/api/v1/google/auth">Login with google</a> using anchor tag  or call this api using axios or fetch
+      responses :
+        200 : 
+          description : You will be redirected to login with google page
+  /api/v1/google/shedule/meeting:
+    post:
+      summary: Schedule a meeting
+      tags :
+        - Schedules a meeting
+      description: |
+        Schedule a new meeting and add it to the user's calendar.
+      requestBody:
+        description: Meeting details
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                startDateTime:
+                  type: string
+                  format: date-time
+                  description: The start date and time of the meeting.
+                  example : '2023-10-08T05:06:53'
+                allAttendees:
+                  type: array
+                  items:
+                    type: string
+                  description: List of email addresses of attendees.
+                content:
+                  type: string
+                  description: Additional meeting details or content.
+                  
+      responses:
+        '200':
+          description: Meeting scheduled successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success : 
+                    type : boolean
+                    example : true
+                  msg:
+                    type: string
+                    description: A success message.
+                    example : Meeting scheduled and Event added successfully
+                    
+                  data:
+                    type: object
+                    description: Details of the scheduled event.
+                    example:
+                      event:
+                        kind: calendar#event
+                        id: unique-event-id
+                        summary: Meeting with Client
+                        description: Discuss project progress.
+                        start:
+                          dateTime: 2023-10-10T14:00:00Z
+                          timeZone: UTC
+                        end:
+                          dateTime: 2023-10-10T15:00:00Z
+                          timeZone: UTC
+                        attendees:
+                          - email: client@example.com
+                            responseStatus: accepted
+                          - email: team-member@example.com
+                            responseStatus: accepted
+                        location: Conference Room A
+                        conferenceData:
+                          conferenceId: example-conference-id
+                          entryPoints:
+                            - entryPointType: video
+                              uri: https://example.com/meeting
+                            - entryPointType: phone
+                              uri: tel:+1234567890
+        '401':
+          description: User not authenticated or tokens not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message.
+                    example : An error occurred
+        '500':
+          description: An error occurred while scheduling the meeting.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message.
 components :
   status :
     404 : 
